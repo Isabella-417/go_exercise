@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".LoginActivity" >
+
+    <TextView
+        android:id="@+id/textGO3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ptf_nordic_rnd"
+        android:text="GO"
+        android:textColor="@color/colorPrimary"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <TextView
+        android:id="@+id/textExercise3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ptf_nordic_rnd"
+        android:text="EXERCISE"
+        android:textColor="@color/colorPrimary"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGO3"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <EditText
+        android:id="@+id/editTextEmail3"
+        android:layout_width="323dp"
+        android:layout_height="45dp"
+        android:background="@drawable/borde_redondo"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Correo electronico"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/tab_indicator_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textExercise3"
+        app:layout_constraintVertical_bias="0.169"
+        tools:text="Correo electronico" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword3"
+        android:layout_width="323dp"
+        android:layout_height="45dp"
+        android:background="@drawable/borde_redondo"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Contraseña"
+        android:textAlignment="center"
+        android:textColor="@color/tab_indicator_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail3"
+        app:layout_constraintVertical_bias="0.061"
+        tools:text="Contraseña" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:onClick="onModulo"
+        android:layout_width="179dp"
+        android:layout_height="43dp"
+        android:background="@drawable/btn_borde_redondo"
+        android:text="Ingresar"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3"
+        app:layout_constraintVertical_bias="0.093"
+        tools:text="Ingresar" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:onClick="onRegister"
+        android:layout_width="241dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn_borde_redondo"
+        android:text="Si eres nuevo, Registrate"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        app:layout_constraintVertical_bias="0.497"
+        tools:text="Si eres nuevo, Registrate" />
+</androidx.constraintlayout.widget.ConstraintLayout>

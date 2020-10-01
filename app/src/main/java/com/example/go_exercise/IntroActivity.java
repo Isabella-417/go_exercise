@@ -37,8 +37,8 @@ public class IntroActivity extends AppCompatActivity {
 
         //check si se ha abierto la actividad intro anteriormente
         if (restorePrefData()){
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(mainActivity);
+            Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginActivity);
             finish();
         }
 
@@ -106,9 +106,9 @@ public class IntroActivity extends AppCompatActivity {
         btnGetStarted.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //inicia main activity
-                Intent mainActivity = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(mainActivity);
+                //inicia login activity
+                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginActivity);
 
                 savePrefsData();
                 finish();
