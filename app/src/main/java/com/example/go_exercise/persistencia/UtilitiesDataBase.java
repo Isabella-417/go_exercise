@@ -1,4 +1,4 @@
-package com.example.go_exercise;
+package com.example.go_exercise.persistencia;
 
 import android.provider.ContactsContract;
 import android.view.inspector.StaticInspectionCompanionProvider;

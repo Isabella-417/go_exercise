@@ -1,4 +1,4 @@
-package com.example.go_exercise;
+package com.example.go_exercise.persistencia;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.go_exercise.persistencia.UtilitiesDataBase;
 
 public class DataBaseOpenHelper extends SQLiteOpenHelper {
 

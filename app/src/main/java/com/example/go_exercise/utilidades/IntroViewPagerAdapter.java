@@ -1,4 +1,4 @@
-package com.example.go_exercise;
+package com.example.go_exercise.utilidades;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.go_exercise.R;
 
 import java.util.List;
 

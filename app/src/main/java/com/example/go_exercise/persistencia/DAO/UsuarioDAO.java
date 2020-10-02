@@ -1,7 +1,9 @@
-package com.example.go_exercise;
+package com.example.go_exercise.persistencia.DAO;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.go_exercise.persistencia.DataBaseOpenHelper;
 
 public class UsuarioDAO {
 

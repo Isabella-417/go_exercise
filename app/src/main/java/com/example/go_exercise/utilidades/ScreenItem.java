@@ -1,4 +1,4 @@
-package com.example.go_exercise;
+package com.example.go_exercise.utilidades;
 
 public class ScreenItem {
     private String title;
