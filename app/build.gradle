@@ -15,11 +15,7 @@ android {
 
         javaCompileOptions{
             annotationProcessorOptions{
-                String  projectdir ="/home/isabella/AndroidStudioProjects/go_exercise";
-                System.out.println(projectdir+"/schemas");
-
-                arguments= ["room.schemaLocation":
-                                    projectdir+"/schemas"]
+                arguments= ["room.schemaLocation": "$projectDir/schemas".toString()]
             }}
     }
 
