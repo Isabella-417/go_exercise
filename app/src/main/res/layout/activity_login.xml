@@ -8,7 +8,7 @@
     tools:context=".LoginActivity" >
 
     <TextView
-        android:id="@+id/textGO3"
+        android:id="@+id/tv_go_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ptf_nordic_rnd"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.21" />
 
     <TextView
-        android:id="@+id/textExercise3"
+        android:id="@+id/tv_exercise_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ptf_nordic_rnd"
@@ -32,17 +32,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGO3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_go_titulo"
         app:layout_constraintVertical_bias="0.035" />
 
     <EditText
-        android:id="@+id/editTextEmail3"
+        android:id="@+id/tv_correo_electronico"
         android:layout_width="323dp"
         android:layout_height="45dp"
         android:background="@drawable/borde_redondo"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Correo electronico"
+        android:hint="Correo electrónico"
+        android:textColorHint="@color/tab_indicator_gray"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/tab_indicator_gray"
@@ -50,25 +51,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textExercise3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exercise_titulo"
         app:layout_constraintVertical_bias="0.169"
         tools:text="Correo electronico" />
 
     <EditText
-        android:id="@+id/editTextTextPassword3"
+        android:id="@+id/tv_contrasena"
         android:layout_width="323dp"
         android:layout_height="45dp"
         android:background="@drawable/borde_redondo"
         android:ems="10"
-        android:inputType="text"
-        android:text="Contraseña"
-        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:hint="Contraseña"
+        android:textColorHint="@color/tab_indicator_gray"
         android:textColor="@color/tab_indicator_gray"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_correo_electronico"
         app:layout_constraintVertical_bias="0.061"
         tools:text="Contraseña" />
 
@@ -84,7 +86,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_contrasena"
         app:layout_constraintVertical_bias="0.093"
         tools:text="Ingresar" />
 

@@ -1,21 +1,42 @@
 package com.example.go_exercise.persistencia.entidades;
 
-public class Usuario {
-    private int id;
-    private String nombre, email, contrasena;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public Usuario(int id, String nombre, String email, String contrasena) {
-        this.id = id;
+import java.io.Serializable;
+
+@Entity(tableName = "usuarios")
+public class Usuario implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    private int id;
+    private String email;
+    private String nombre, contrasena;
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String email) {
         this.nombre = nombre;
         this.email = email;
         this.contrasena = contrasena;
     }
 
+    public Usuario(String nombre, String email, String contrasena) {
+        this.nombre = nombre;
+        this.email = email;
+        this.contrasena = contrasena;
+    }
+
+    @NonNull
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(@NonNull int id) {
         this.id = id;
     }
 
@@ -43,5 +64,13 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                '}';
+    }
 }

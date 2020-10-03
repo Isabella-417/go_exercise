@@ -8,7 +8,7 @@
     tools:context=".RegistroActivity">
 
     <TextView
-        android:id="@+id/textGO"
+        android:id="@+id/tv_go_titulo_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ptf_nordic_rnd"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.21" />
 
     <TextView
-        android:id="@+id/textExercise"
+        android:id="@+id/tv_exercise_titulo_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -34,57 +34,60 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGO"
+        app:layout_constraintTop_toBottomOf="@+id/tv_go_titulo_registro"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextNombre"
+        android:id="@+id/tv_nombre_usuario"
         android:layout_width="323dp"
         android:layout_height="45dp"
         android:background="@drawable/borde_redondo"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nombre"
+        android:hint="Nombre completo"
+        android:textColorHint="@color/tab_indicator_gray"
         android:textAlignment="center"
         android:textColor="@color/tab_indicator_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textExercise"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exercise_titulo_registro"
         app:layout_constraintVertical_bias="0.147" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/tv_correo_usuario"
         android:layout_width="323dp"
         android:layout_height="45dp"
         android:background="@drawable/borde_redondo"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Correo electronico"
+        android:hint="Correo electrónico"
+        android:textColorHint="@color/tab_indicator_gray"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/tab_indicator_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_usuario"
         app:layout_constraintVertical_bias="0.075" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/tv_contrasena_usuario"
         android:layout_width="323dp"
         android:layout_height="45dp"
         android:background="@drawable/borde_redondo"
         android:ems="10"
-        android:inputType="text"
-        android:text="Contraseña"
+        android:inputType="textPassword"
+        android:hint="Contraseña"
+        android:textColorHint="@color/tab_indicator_gray"
         android:textAlignment="center"
         android:textColor="@color/tab_indicator_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_correo_usuario"
         app:layout_constraintVertical_bias="0.082" />
 
     <Button
@@ -100,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tv_contrasena_usuario"
         app:layout_constraintVertical_bias="0.208"
         tools:text="Registrarse" />
 
