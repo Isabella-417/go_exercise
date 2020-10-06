@@ -4,36 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/colorBackgroundPrimary"
     tools:context=".LoginActivity" >
 
-    <TextView
-        android:id="@+id/tv_go_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ptf_nordic_rnd"
-        android:text="GO"
-        android:textColor="@color/colorPrimary"
-        android:textSize="80sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <ImageView
+        android:id="@+id/tv_exercise_titulo"
+        android:layout_width="131dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21" />
+        app:srcCompat="@drawable/logo_principal" />
 
     <TextView
-        android:id="@+id/tv_exercise_titulo"
+        android:id="@+id/tv_descripcion_inicio_sesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ptf_nordic_rnd"
-        android:text="EXERCISE"
-        android:textColor="@color/colorPrimary"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="Si tienes un perfil, Inicia sesión"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_go_titulo"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_exercise_titulo" />
 
     <EditText
         android:id="@+id/tv_correo_electronico"
@@ -41,18 +36,18 @@
         android:layout_height="45dp"
         android:background="@drawable/borde_redondo"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="Correo electrónico"
-        android:textColorHint="@color/tab_indicator_gray"
+        android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/tab_indicator_gray"
+        android:textColorHint="@color/tab_indicator_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_exercise_titulo"
-        app:layout_constraintVertical_bias="0.169"
+        app:layout_constraintTop_toBottomOf="@+id/tv_descripcion_inicio_sesion"
+        app:layout_constraintVertical_bias="0.064"
         tools:text="Correo electronico" />
 
     <EditText
@@ -107,4 +102,5 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.497"
         tools:text="Si eres nuevo, Registrate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

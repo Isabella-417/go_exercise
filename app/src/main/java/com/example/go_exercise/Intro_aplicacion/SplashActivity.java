@@ -1,10 +1,12 @@
-package com.example.go_exercise;
+package com.example.go_exercise.Intro_aplicacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.go_exercise.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -15,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this,IntroActivity.class);
+                Intent intent = new Intent(SplashActivity.this, IntroActivity.class);
                 startActivity(intent);
                 finish();
             }

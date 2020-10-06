@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment2">
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.go_exercise.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_necesidadFragment2"
+            app:destination="@id/necesidadFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_rangoDificultadFragment2"
+            app:destination="@id/rangoDificultadFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_parteEjercitarFragment"
+            app:destination="@id/parteEjercitarFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_equipamientoFragment"
+            app:destination="@id/equipamientoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/necesidadFragment2"
+        android:name="com.example.go_exercise.fragments.NecesidadFragment"
+        android:label="fragment_necesidad"
+        tools:layout="@layout/fragment_necesidad" >
+        <action
+            android:id="@+id/action_necesidadFragment2_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/rangoDificultadFragment2"
+        android:name="com.example.go_exercise.fragments.RangoDificultadFragment"
+        android:label="fragment_rango_dificultad"
+        tools:layout="@layout/fragment_rango_dificultad" >
+        <action
+            android:id="@+id/action_rangoDificultadFragment2_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/parteEjercitarFragment"
+        android:name="com.example.go_exercise.fragments.ParteEjercitarFragment"
+        android:label="fragment_parte_ejercitar"
+        tools:layout="@layout/fragment_parte_ejercitar" >
+        <action
+            android:id="@+id/action_parteEjercitarFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/equipamientoFragment"
+        android:name="com.example.go_exercise.fragments.EquipamientoFragment"
+        android:label="fragment_equipamiento"
+        tools:layout="@layout/fragment_equipamiento" >
+        <action
+            android:id="@+id/action_equipamientoFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+</navigation>

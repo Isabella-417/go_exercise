@@ -6,7 +6,6 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.example.go_exercise.persistencia.DAO.UsuarioDAO;
-import com.example.go_exercise.persistencia.DAO.UsuarioDataBase;
 import com.example.go_exercise.persistencia.entidades.Usuario;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class VistaUsuario {
 
     public VistaUsuario(Context context) {
         Context appContext = context.getApplicationContext();
-        UsuarioDataBase database = Room.databaseBuilder(appContext,UsuarioDataBase.class,"go_exercise").allowMainThreadQueries().build();
+        GoExerciseDataBase database = Room.databaseBuilder(appContext, GoExerciseDataBase.class,"go_exercise").allowMainThreadQueries().build();
         mUsuarioDao = database.getUsuarioDao();
     }
 

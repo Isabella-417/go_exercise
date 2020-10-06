@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00d9b3</color>
-    <color name="colorPrimaryDark">#00a683</color>
-    <color name="colorAccent">#64ffe5</color>
+    <color name="colorPrimary">#38ceb1</color>
+    <color name="colorPrimaryDark">#1c6658</color>
+    <color name="colorAccent">#123b34</color>
+    <color name="colorBackgroundPrimary">#040404</color>
+
+    <color name="white">#ffffff</color>
 
     <!-- colores de botones -->
     <color name="gradient_start_color">#4c84ff</color>

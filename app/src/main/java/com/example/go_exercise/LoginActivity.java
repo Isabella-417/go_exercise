@@ -1,7 +1,6 @@
 package com.example.go_exercise;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.go_exercise.persistencia.DAO.UsuarioDataBase;
 import com.example.go_exercise.persistencia.VistaUsuario;
 import com.example.go_exercise.persistencia.entidades.Usuario;
 
@@ -30,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         vistaUsuario = new VistaUsuario(getApplicationContext());
-        //usuarioDataBase = Room.databaseBuilder(getApplicationContext(),UsuarioDataBase.class,"go_exercise").allowMainThreadQueries().build();
+        //usuarioDataBase = Room.databaseBuilder(getApplicationContext(),GoExerciseDataBase.class,"go_exercise").allowMainThreadQueries().build();
 
     }
 

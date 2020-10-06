@@ -1,4 +1,4 @@
-package com.example.go_exercise;
+package com.example.go_exercise.Intro_aplicacion;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.go_exercise.LoginActivity;
+import com.example.go_exercise.R;
 import com.example.go_exercise.utilidades.IntroViewPagerAdapter;
 import com.example.go_exercise.utilidades.ScreenItem;
 import com.google.android.material.tabs.TabLayout;
