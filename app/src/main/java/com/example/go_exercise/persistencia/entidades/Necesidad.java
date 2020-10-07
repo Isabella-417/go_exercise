@@ -14,6 +14,14 @@ public class Necesidad implements Serializable {
     private int id;
     private String nombre, descripcion;
 
+    public Necesidad() {
+    }
+
+    public Necesidad(String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
     @NonNull
     public int getId() {

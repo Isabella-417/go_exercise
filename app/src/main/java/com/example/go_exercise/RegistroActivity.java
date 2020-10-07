@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.go_exercise.persistencia.VistaUsuario;
+import com.example.go_exercise.persistencia.views.UsuarioViewModel;
 import com.example.go_exercise.persistencia.entidades.Usuario;
 
 public class RegistroActivity extends AppCompatActivity {
 
     EditText nombre_usuario, correo_electronico, contrasena;
-    public VistaUsuario vistaUsuario;
+    public UsuarioViewModel usuarioViewModel;
 
 
     @Override
@@ -23,8 +23,10 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        vistaUsuario = new VistaUsuario(getApplicationContext());
+        usuarioViewModel = new UsuarioViewModel(getApplication());
     }
+
+
 
     public void onModulo(View view){
 
@@ -44,7 +46,7 @@ public class RegistroActivity extends AppCompatActivity {
                                         correo_electronico.getText().toString(),
                                         contrasena.getText().toString());
             registro_exitoso = true;
-            vistaUsuario.insertUsuario(usuario);
+            usuarioViewModel.insert(usuario);
             Intent intent = new Intent(this, ModuloActivity.class);
             startActivity(intent);
         }

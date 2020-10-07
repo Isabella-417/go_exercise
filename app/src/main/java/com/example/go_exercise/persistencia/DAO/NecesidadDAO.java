@@ -24,9 +24,15 @@ public interface NecesidadDAO {
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(Necesidad necesidad);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insert(Necesidad... necesidades);
+
     @Update
     void update(Necesidad necesidad);
 
     @Delete
     void delete(Necesidad necesidad);
+
+    @Query("DELETE FROM necesidad")
+    void deleteAll();
 }

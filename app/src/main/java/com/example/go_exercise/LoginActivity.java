@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.go_exercise.persistencia.VistaUsuario;
+import com.example.go_exercise.persistencia.views.UsuarioViewModel;
 import com.example.go_exercise.persistencia.entidades.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
     EditText correo_electronico, contrasena;
 
-    public VistaUsuario vistaUsuario;
+    public UsuarioViewModel usuarioViewModel;
     private Usuario usuario;
 
 
@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        vistaUsuario = new VistaUsuario(getApplicationContext());
+        usuarioViewModel = new UsuarioViewModel(getApplication());
         //usuarioDataBase = Room.databaseBuilder(getApplicationContext(),GoExerciseDataBase.class,"go_exercise").allowMainThreadQueries().build();
 
     }
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         boolean vacio = correo_electronico.getText().toString().equals("") ||
                 contrasena.getText().toString().equals("") ? true:false;
         if(!vacio){
-            usuario = vistaUsuario.getUsuario(correo_electronico.getText().toString(),contrasena.getText().toString());
+            usuario = usuarioViewModel.get(correo_electronico.getText().toString(),contrasena.getText().toString());
         }
 
         if (usuario != null){

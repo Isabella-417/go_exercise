@@ -23,10 +23,16 @@ public interface UsuarioDAO {
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(Usuario usuario);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insert(Usuario... usuarios);
+
     @Update
     void update(Usuario user);
 
     @Delete
     void delete(Usuario user);
+
+    @Query("DELETE FROM usuarios")
+    void deleteAll();
 
 }
