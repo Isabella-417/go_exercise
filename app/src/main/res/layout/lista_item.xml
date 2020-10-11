@@ -32,15 +32,14 @@
 
             <ImageView
                 android:id="@+id/iv_icono_contenedor_elemento"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/logo_principal"
+                android:layout_width="wrap_content"
                 android:tag="image_tag" />
 
             <LinearLayout
                 android:layout_width="0dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_weight="2"
@@ -54,6 +53,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/rubik_regular"
                     android:text="Nombre"
+                    android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/colorPrimary"
                     android:textSize="25dp" />
