@@ -12,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.go_exercise.R;
+import com.example.go_exercise.utilidades.RecyclerViewClickInterface;
 
-public class ParteEjercitarFragment extends Fragment {
+public class ParteEjercitarFragment extends Fragment implements RecyclerViewClickInterface {
 
     public ParteEjercitarFragment() {
         // Required empty public constructor
@@ -43,5 +45,15 @@ public class ParteEjercitarFragment extends Fragment {
                 navController.navigate(R.id.homeFragment2);
             }
         });
+    }
+
+    @Override
+    public void onItemClick(View view) {
+
+    }
+
+    @Override
+    public void onLongItemClick(int position) {
+
     }
 }

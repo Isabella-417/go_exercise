@@ -24,6 +24,7 @@
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
+            android:id="@+id/ll_contenedor_informacion_elemento"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="#FFFFFF"

@@ -21,6 +21,11 @@
         <action
             android:id="@+id/action_homeFragment2_to_equipamientoFragment"
             app:destination="@id/equipamientoFragment" />
+        <argument
+            android:name="variablesGlobales"
+            app:argType="com.example.go_exercise.utilidades.VariableGlobales"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/necesidadFragment2"
@@ -30,6 +35,9 @@
         <action
             android:id="@+id/action_necesidadFragment2_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <argument
+            android:name="variablesGlobales"
+            app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
     </fragment>
     <fragment
         android:id="@+id/rangoDificultadFragment2"
@@ -39,6 +47,9 @@
         <action
             android:id="@+id/action_rangoDificultadFragment2_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <argument
+            android:name="variablesGlobales"
+            app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
     </fragment>
     <fragment
         android:id="@+id/parteEjercitarFragment"

@@ -20,7 +20,7 @@ public class UsuarioViewModel extends AndroidViewModel {
 
     public UsuarioViewModel(@NonNull Application application) {
         super(application);
-        usuarioDao = GoExerciseDataBase.getDatabase(application).UsuarioDao();
+        usuarioDao = GoExerciseDataBase.getDatabase(application).usuarioDao();
         usuariosLiveData = usuarioDao.getUsuarios();
     }
 

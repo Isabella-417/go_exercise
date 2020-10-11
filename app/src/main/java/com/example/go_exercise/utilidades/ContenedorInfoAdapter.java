@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,9 +17,12 @@ import java.util.List;
 public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAdapter.ViewHolderDatos> {
 
     List<ScreenItem> listaDatos;
+    private RecyclerViewClickInterface recyclerViewClickInterface;
 
-    public ContenedorInfoAdapter(List<ScreenItem> listaDatos) {
+
+    public ContenedorInfoAdapter(List<ScreenItem> listaDatos, RecyclerViewClickInterface recyclerViewClickInterface) {
         this.listaDatos = listaDatos;
+        this.recyclerViewClickInterface = recyclerViewClickInterface;
     }
 
 
@@ -26,7 +30,18 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item,null,false);
-        return new ViewHolderDatos(view);
+        ViewHolderDatos vHolder = new ViewHolderDatos(view);
+
+        vHolder.contenedor_elemento.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                recyclerViewClickInterface.onItemClick(view);
+            }
+        });
+
+
+        return vHolder;
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
@@ -44,9 +59,11 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
         ImageView icono_contenedor;
         TextView  nombre_contenedor;
         TextView  descripcion_contenedor;
+        LinearLayout contenedor_elemento;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
+            contenedor_elemento = (LinearLayout) itemView.findViewById(R.id.ll_contenedor_informacion_elemento);
             icono_contenedor = (ImageView) itemView.findViewById(R.id.iv_icono_contenedor_elemento);
             nombre_contenedor = (TextView) itemView.findViewById(R.id.tv_nombre_contenedor_elemento);
             descripcion_contenedor = (TextView) itemView.findViewById(R.id.tv_descripcion_contenedor_elemento);
