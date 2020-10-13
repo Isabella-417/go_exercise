@@ -52,16 +52,18 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_lapso_tiempo_rutina, container, false);
 
         // Carga los datos que se mostrarán en el listado
 
         recycler = (RecyclerView) view.findViewById(R.id.contenedor_intervalo_tiempo_rutinas);
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false));
         List<ScreenItem> lapsos_parsed = parseData(lapsos);
 
-        ContenedorInfoAdapter contenedor_datos = new ContenedorInfoAdapter(lapsos_parsed, this);
+        int numero_layout = R.layout.lista_item_tiempo;
+
+        ContenedorInfoAdapter contenedor_datos = new ContenedorInfoAdapter(lapsos_parsed, this,numero_layout);
 
         recycler.setAdapter(contenedor_datos);
         return view;

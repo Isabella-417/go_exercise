@@ -1,5 +1,6 @@
 package com.example.go_exercise.utilidades;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
 
     List<ScreenItem> listaDatos;
     private RecyclerViewClickInterface recyclerViewClickInterface;
+    private int tipo_plantilla = 0;
 
 
     public ContenedorInfoAdapter(List<ScreenItem> listaDatos, RecyclerViewClickInterface recyclerViewClickInterface) {
@@ -25,11 +27,22 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
         this.recyclerViewClickInterface = recyclerViewClickInterface;
     }
 
+    public ContenedorInfoAdapter(List<ScreenItem> listaDatos, RecyclerViewClickInterface recyclerViewClickInterface, int tipo_plantilla) {
+        this.listaDatos = listaDatos;
+        this.recyclerViewClickInterface = recyclerViewClickInterface;
+        this.tipo_plantilla = tipo_plantilla;
+    }
+
 
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item,null,false);
+        View view;
+        if(tipo_plantilla == 0){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item,null,false);
+        }else{
+            view = LayoutInflater.from(parent.getContext()).inflate(tipo_plantilla,null,false);
+        }
         ViewHolderDatos vHolder = new ViewHolderDatos(view);
 
         vHolder.contenedor_elemento.setOnClickListener(new View.OnClickListener() {
@@ -63,16 +76,20 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
+
             contenedor_elemento = (LinearLayout) itemView.findViewById(R.id.ll_contenedor_informacion_elemento);
             icono_contenedor = (ImageView) itemView.findViewById(R.id.iv_icono_contenedor_elemento);
             nombre_contenedor = (TextView) itemView.findViewById(R.id.tv_nombre_contenedor_elemento);
             descripcion_contenedor = (TextView) itemView.findViewById(R.id.tv_descripcion_contenedor_elemento);
+
         }
 
         public void asignarDatos(ScreenItem screenItem) {
-            icono_contenedor.setImageResource(screenItem.getScreenimg());
+            //icono_contenedor.setImageResource(screenItem.getScreenimg());
             nombre_contenedor.setText(screenItem.getTitle());
-            descripcion_contenedor.setText(screenItem.getDescription());
+            if(tipo_plantilla == 0) {
+                descripcion_contenedor.setText(screenItem.getDescription());
+            }
         }
     }
 }

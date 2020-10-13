@@ -50,12 +50,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (usuario != null){
-            Toast toast =  Toast.makeText(getApplicationContext(),
-                    "Bienvenido!", Toast.LENGTH_SHORT);
-
-            toast.setGravity(Gravity.CENTER|Gravity.LEFT,0,0);
-            toast.show();
-
             Intent intent = new Intent(this,ModuloActivity.class);
             startActivity(intent);
 
