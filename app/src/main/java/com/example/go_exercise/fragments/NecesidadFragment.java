@@ -36,7 +36,6 @@ public class NecesidadFragment extends Fragment implements RecyclerViewClickInte
 
     VariableGlobales variableGlobales;
 
-
     public NecesidadFragment() {
         // Required empty public constructor
     }
@@ -84,11 +83,9 @@ public class NecesidadFragment extends Fragment implements RecyclerViewClickInte
         ImageButton btn_atras = view.findViewById(R.id.icono_atras);
 
         if (getArguments() != null){
-
             NecesidadFragmentArgs args = NecesidadFragmentArgs.fromBundle(getArguments());
             if(args.getVariablesGlobales() != null){
                 variableGlobales =  args.getVariablesGlobales();
-
             }
         }
 
@@ -114,8 +111,6 @@ public class NecesidadFragment extends Fragment implements RecyclerViewClickInte
 
         NecesidadFragmentDirections.ActionNecesidadFragment2ToHomeFragment2 action = NecesidadFragmentDirections.actionNecesidadFragment2ToHomeFragment2();
         action.setVariablesGlobales(variableGlobales);
-
-
 
         final NavController navController = Navigation.findNavController(view);
 

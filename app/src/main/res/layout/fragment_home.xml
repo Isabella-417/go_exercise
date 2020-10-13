@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/colorBackgroundPrimary"
     tools:context=".fragments.HomeFragment">
 
@@ -26,7 +26,10 @@
         android:layout_width="249dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
+        android:background="@drawable/btn_borde_redondo"
+        android:fontFamily="@font/rubik_regular"
         android:text="Parte del cuerpo a Ejercitar"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_conf_dificultad" />
@@ -36,7 +39,10 @@
         android:layout_width="247dp"
         android:layout_height="52dp"
         android:layout_marginTop="48dp"
+        android:background="@drawable/btn_borde_redondo"
+        android:fontFamily="@font/rubik_regular"
         android:text="Equipamiento"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
@@ -48,9 +54,13 @@
         android:id="@+id/btn_conf_necesidad"
         android:layout_width="251dp"
         android:layout_height="52dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="196dp"
+        android:background="@drawable/btn_borde_redondo"
+        android:fontFamily="@font/rubik_regular"
         android:text="Necesidad"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +69,10 @@
         android:layout_width="249dp"
         android:layout_height="53dp"
         android:layout_marginTop="48dp"
+        android:background="@drawable/btn_borde_redondo"
+        android:fontFamily="@font/rubik_regular"
         android:text="Dificultad"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +83,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
+        android:fontFamily="@font/rubik_light"
         android:text="Sin seleccionar"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_conf_necesidad" />
@@ -80,7 +95,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
+        android:fontFamily="@font/rubik_light"
         android:text="Sin seleccionar"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_conf_dificultad" />
@@ -90,20 +107,71 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
+        android:fontFamily="@font/rubik_light"
         android:text="Sin seleccionar"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_conf_parte_cuerpo" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_descripcion_equipamiento_seleccionada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
+        android:fontFamily="@font/rubik_light"
         android:text="Sin seleccionar"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_conf_equipamiento" />
 
+
+    <TextView
+        android:id="@+id/tv_titulo_conf_rutina"
+        android:layout_width="255dp"
+        android:layout_height="29dp"
+        android:layout_gravity="top|center"
+        android:layout_margin="100dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/rubik_regular"
+        android:text="Configuración Rutina"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/rubik_light"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="Personaliza tu rutina"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo_conf_rutina" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/borde_redondo"
+        android:src="@drawable/empezar_rutina"
+        app:backgroundTint="@color/white"
+        app:borderWidth="12dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_descripcion_equipamiento_seleccionada"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

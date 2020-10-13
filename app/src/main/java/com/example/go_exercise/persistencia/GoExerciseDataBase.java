@@ -10,9 +10,13 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.go_exercise.persistencia.DAO.EnfoqueDAO;
+import com.example.go_exercise.persistencia.DAO.EquipamientoDAO;
 import com.example.go_exercise.persistencia.DAO.NecesidadDAO;
 import com.example.go_exercise.persistencia.DAO.RangoDificultadDAO;
 import com.example.go_exercise.persistencia.DAO.UsuarioDAO;
+import com.example.go_exercise.persistencia.entidades.Enfoque;
+import com.example.go_exercise.persistencia.entidades.Equipamiento;
 import com.example.go_exercise.persistencia.entidades.Necesidad;
 import com.example.go_exercise.persistencia.entidades.RangoDificultad;
 import com.example.go_exercise.persistencia.entidades.Usuario;
@@ -21,7 +25,9 @@ import com.example.go_exercise.persistencia.entidades.Usuario;
         entities = {
                 Usuario.class,
                 Necesidad.class,
-                RangoDificultad.class
+                RangoDificultad.class,
+                Enfoque.class,
+                Equipamiento.class
         },
         version = 1,
         exportSchema = true
@@ -63,16 +69,22 @@ public abstract class GoExerciseDataBase extends RoomDatabase {
     public abstract NecesidadDAO  necesidadDao();
     public abstract UsuarioDAO usuarioDao();
     public abstract RangoDificultadDAO rangoDao();
+    public abstract EnfoqueDAO enfoqueDao();
+    public abstract EquipamientoDAO equipamientoDao();
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
         private final NecesidadDAO necesidadDao;
         private final UsuarioDAO usuarioDao;
         private final RangoDificultadDAO rangoDao;
+        private final EnfoqueDAO enfoqueDao;
+        private final EquipamientoDAO equipamientoDao;
 
         public PopulateDbAsync(GoExerciseDataBase instance) {
             necesidadDao = instance.necesidadDao();
             usuarioDao = instance.usuarioDao();
             rangoDao = instance.rangoDao();
+            enfoqueDao = instance.enfoqueDao();
+            equipamientoDao = instance.equipamientoDao();
         }
 
         @Override
@@ -100,6 +112,21 @@ public abstract class GoExerciseDataBase extends RoomDatabase {
 
             rangoDao.insert(rango_1,rango_2,rango_3);
 
+            //enfoques
+
+            Enfoque enfoque_1 = new Enfoque("Todo el cuerpo", "");
+            Enfoque enfoque_2 = new Enfoque("Tren superior", "");
+            Enfoque enfoque_3 = new Enfoque("Tren inferior","");
+
+            enfoqueDao.insert(enfoque_1,enfoque_2,enfoque_3);
+
+            //equipamientos
+            Equipamiento equipamiento_1 = new Equipamiento("Mancuernas", "");
+            Equipamiento equipamiento_2 = new Equipamiento("Barras", "");
+            Equipamiento equipamiento_3 = new Equipamiento("Ligas","");
+            Equipamiento equipamiento_4 = new Equipamiento("Ninguno","");
+
+            equipamientoDao.insert(equipamiento_1,equipamiento_2,equipamiento_3,equipamiento_4);
 
             return null;
         }

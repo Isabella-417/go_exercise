@@ -46,5 +46,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_titulo_equipamiento" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contenedor_equipamientos"
+        android:layout_width="352dp"
+        android:layout_height="426dp"
+        android:layout_marginTop="60dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_descripcion_equipamiento" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -57,6 +57,16 @@ public class HomeFragment extends Fragment {
                     rango_dificultad.setText(variableGlobales.getRangoDificultad());
                 }
 
+                if (variableGlobales.getEnfoque() != null){
+                    TextView enfoque = (TextView)view.findViewById(R.id.tv_descripcion_parte_cuerpo_seleccionada);
+                    enfoque.setText(variableGlobales.getEnfoque());
+                }
+
+                if (variableGlobales.getEnfoque() != null){
+                    TextView equipamiento = (TextView)view.findViewById(R.id.tv_descripcion_equipamiento_seleccionada);
+                    equipamiento.setText(variableGlobales.getEquipamiento());
+                }
+
                 System.out.println("**************Variables actualizadas OBJ : "+args.getVariablesGlobales().toString());
 
             }
@@ -76,7 +86,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 HomeFragmentDirections.ActionHomeFragment2ToNecesidadFragment2 accion = HomeFragmentDirections.actionHomeFragment2ToNecesidadFragment2(variableGlobales);
                 navController.navigate(accion);
-                //navController.navigate(R.id.necesidadFragment2);
             }
         });
 
@@ -86,16 +95,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 HomeFragmentDirections.ActionHomeFragment2ToRangoDificultadFragment2 accion = HomeFragmentDirections.actionHomeFragment2ToRangoDificultadFragment2(variableGlobales);
                 navController.navigate(accion);
-                //navController.navigate(R.id.rangoDificultadFragment2);
             }
         });
 
-
-        //Navegación parte del cuerpo a ejercitar
+        //Navegación enfoque
         btn_parte_ejercitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.parteEjercitarFragment);
+                HomeFragmentDirections.ActionHomeFragment2ToParteEjercitarFragment accion = HomeFragmentDirections.actionHomeFragment2ToParteEjercitarFragment(variableGlobales);
+                navController.navigate(accion);
             }
         });
 
@@ -103,10 +111,9 @@ public class HomeFragment extends Fragment {
         btn_equipamiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.equipamientoFragment);
+                HomeFragmentDirections.ActionHomeFragment2ToEquipamientoFragment accion = HomeFragmentDirections.actionHomeFragment2ToEquipamientoFragment(variableGlobales);
+                navController.navigate(accion);
             }
         });
-
-
     }
 }

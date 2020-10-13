@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_parteEjercitarFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <argument
+            android:name="variablesGlobales"
+            app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
     </fragment>
     <fragment
         android:id="@+id/equipamientoFragment"
@@ -68,5 +71,8 @@
         <action
             android:id="@+id/action_equipamientoFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <argument
+            android:name="variablesGlobales"
+            app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
     </fragment>
 </navigation>

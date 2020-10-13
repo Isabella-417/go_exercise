@@ -8,6 +8,8 @@ public class VariableGlobales implements Parcelable {
 
     public String necesidad;
     public String rangoDificultad;
+    public String enfoque;
+    public String equipamiento;
 
 
     public String getNecesidad() {
@@ -26,6 +28,21 @@ public class VariableGlobales implements Parcelable {
         this.rangoDificultad = rangoDificultad;
     }
 
+    public String getEnfoque() {
+        return enfoque;
+    }
+
+    public void setEnfoque(String enfoque) {
+        this.enfoque = enfoque;
+    }
+
+    public String getEquipamiento() {
+        return equipamiento;
+    }
+
+    public void setEquipamiento(String equipamiento) {
+        this.equipamiento = equipamiento;
+    }
 
     @Override
     public int describeContents() {
@@ -36,20 +53,26 @@ public class VariableGlobales implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(necesidad);
         parcel.writeString(rangoDificultad);
+        parcel.writeString(enfoque);
+        parcel.writeString(equipamiento);
     }
 
     public void readFromParcel(Parcel parcel) {
         necesidad = parcel.readString();
         rangoDificultad = parcel.readString();
+        enfoque = parcel.readString();
+        equipamiento = parcel.readString();
     }
 
 
     public VariableGlobales() {
     }
 
-    public VariableGlobales(String necesidad, String rangoDificultad) {
+    public VariableGlobales(String necesidad, String rangoDificultad, String enfoque, String equipamiento) {
         this.necesidad = necesidad;
         this.rangoDificultad = rangoDificultad;
+        this.enfoque = enfoque;
+        this.equipamiento = equipamiento;
     }
 
     public VariableGlobales(Parcel in) {
@@ -74,6 +97,8 @@ public class VariableGlobales implements Parcelable {
         return "VariableGlobales{" +
                 "necesidad='" + necesidad + '\'' +
                 ", rangoDificultad='" + rangoDificultad + '\'' +
+                ", enfoque='" + enfoque + '\'' +
+                ", equipamiento='" + equipamiento + '\'' +
                 '}';
     }
 }
