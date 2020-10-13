@@ -9,8 +9,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ModuloActivity"></activity>
         <activity android:name=".RegistroActivity" />
-        <activity android:name=".Intro_aplicacion.IntroActivity" />
-        <activity android:name=".Intro_aplicacion.SplashActivity">
+        <activity android:name=".intro_aplicacion.IntroActivity" />
+        <activity android:name=".intro_aplicacion.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

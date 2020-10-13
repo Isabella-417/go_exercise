@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundPrimary"
+    tools:context=".fragments.LapsoTiempoRutinaFragment">
+
+    <TextView
+        android:id="@+id/tv_lapso_tiempo_rutina"
+        android:layout_width="320dp"
+        android:layout_height="28dp"
+        android:layout_gravity="top|center"
+        android:layout_margin="100dp"
+        android:fontFamily="@font/rubik_regular"
+        android:text="Duración de rutina"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_lapso_tiempo_rutina_descripcion"
+        android:layout_width="315dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/rubik_light"
+        android:text="Seleccione el tiempo que dedicará a su entrenamiento"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lapso_tiempo_rutina" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contenedor_intervalo_tiempo_rutinas"
+        android:layout_width="352dp"
+        android:layout_height="426dp"
+        android:layout_marginTop="60dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lapso_tiempo_rutina_descripcion" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.go_exercise.Intro_aplicacion;
+package com.example.go_exercise.intro_aplicacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -8,14 +8,18 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.go_exercise.R;
 import com.example.go_exercise.utilidades.VariableGlobales;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 public class HomeFragment extends Fragment {
 
@@ -77,6 +81,7 @@ public class HomeFragment extends Fragment {
         Button btn_dificultad = view.findViewById(R.id.btn_conf_dificultad);
         Button btn_parte_ejercitar = view.findViewById(R.id.btn_conf_parte_cuerpo);
         Button btn_equipamiento = view.findViewById(R.id.btn_conf_equipamiento);
+        FloatingActionButton btn_iniciar_rutina = view.findViewById(R.id.btn_calcular_tiempo_rutina);
 
         final NavController navController = Navigation.findNavController(view);
 
@@ -115,5 +120,31 @@ public class HomeFragment extends Fragment {
                 navController.navigate(accion);
             }
         });
+
+        //Inicio de rutina
+        btn_iniciar_rutina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String necesidad = variableGlobales.getNecesidad();
+                String dificultad = variableGlobales.getRangoDificultad();
+                String enfoque = variableGlobales.getEnfoque();
+                String equipamiento = variableGlobales.getEquipamiento();
+
+                boolean formulario_diligenciado = necesidad!=null && dificultad!=null && enfoque!=null && equipamiento!=null;
+
+                if(formulario_diligenciado){
+                    navController.navigate(R.id.lapsoTiempoRutinaFragment);
+                }else{
+                    Toast toast =  Toast.makeText(getContext(),
+                            "Por favor seleccione todas las opciones", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER|Gravity.CENTER,0,0);
+                    toast.show();
+                }
+                //HomeFragmentDirections.ActionHomeFragment2ToEquipamientoFragment accion = HomeFragmentDirections.actionHomeFragment2ToEquipamientoFragment(variableGlobales);
+                //navController.navigate(accion);
+            }
+        });
+
+
     }
 }

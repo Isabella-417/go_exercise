@@ -75,4 +75,25 @@
             android:name="variablesGlobales"
             app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
     </fragment>
+    <fragment
+        android:id="@+id/lapsoTiempoRutinaFragment"
+        android:name="com.example.go_exercise.fragments.LapsoTiempoRutinaFragment"
+        android:label="fragment_lapso_tiempo_rutina"
+        tools:layout="@layout/fragment_lapso_tiempo_rutina" >
+        <action
+            android:id="@+id/action_lapsoTiempoRutinaFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+        <argument
+            android:name="variablesGlobales"
+            app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
+    </fragment>
+    <fragment
+        android:id="@+id/iniciarRutinaFragment"
+        android:name="com.example.go_exercise.fragments.IniciarRutinaFragment"
+        android:label="fragment_iniciar_rutina"
+        tools:layout="@layout/fragment_iniciar_rutina" >
+        <action
+            android:id="@+id/action_iniciarRutinaFragment_to_lapsoTiempoRutinaFragment"
+            app:destination="@id/lapsoTiempoRutinaFragment" />
+    </fragment>
 </navigation>
