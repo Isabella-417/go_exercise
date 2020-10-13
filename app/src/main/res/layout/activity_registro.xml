@@ -7,37 +7,17 @@
     android:background="@color/colorBackgroundPrimary"
     tools:context=".RegistroActivity">
 
-    <TextView
-        android:id="@+id/tv_go_titulo_registro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/rubik_regular"
-        android:text="GO"
-        android:textColor="@color/colorPrimary"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/titulo_registro"
+        android:layout_width="300dp"
+        android:layout_height="265dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_descripcion_inicio_sesion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21" />
-
-    <TextView
-        android:id="@+id/tv_exercise_titulo_registro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="484dp"
-        android:fontFamily="@font/rubik_regular"
-        android:text="EXERCISE"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_go_titulo_registro"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/logo_principal" />
 
     <EditText
         android:id="@+id/tv_nombre_usuario"
@@ -54,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_exercise_titulo_registro"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_registro"
         app:layout_constraintVertical_bias="0.147" />
 
     <EditText

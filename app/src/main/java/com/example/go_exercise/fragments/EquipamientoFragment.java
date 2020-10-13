@@ -98,7 +98,12 @@ public class EquipamientoFragment extends Fragment implements RecyclerViewClickI
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.homeFragment2);
+                EquipamientoFragmentDirections.ActionEquipamientoFragmentToHomeFragment2 accion = EquipamientoFragmentDirections.actionEquipamientoFragmentToHomeFragment2();
+                accion.setVariablesGlobales(variableGlobales);
+
+                final NavController navController = Navigation.findNavController(view);
+
+                navController.navigate(accion);
             }
         });
     }

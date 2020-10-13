@@ -98,7 +98,12 @@ public class RangoDificultadFragment extends Fragment implements RecyclerViewCli
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.homeFragment2);
+                RangoDificultadFragmentDirections.ActionRangoDificultadFragment2ToHomeFragment2 accion = RangoDificultadFragmentDirections.actionRangoDificultadFragment2ToHomeFragment2();
+                accion.setVariablesGlobales(variableGlobales);
+
+                final NavController navController = Navigation.findNavController(view);
+
+                navController.navigate(accion);
             }
         });
     }
@@ -110,7 +115,6 @@ public class RangoDificultadFragment extends Fragment implements RecyclerViewCli
         String nombre_valor_escogido = valor_escogido.getText().toString();
 
         variableGlobales.setRangoDificultad(nombre_valor_escogido);
-
 
         RangoDificultadFragmentDirections.ActionRangoDificultadFragment2ToHomeFragment2 accion = RangoDificultadFragmentDirections.actionRangoDificultadFragment2ToHomeFragment2();
         accion.setVariablesGlobales(variableGlobales);
