@@ -95,7 +95,11 @@ public class ParteEjercitarFragment extends Fragment implements RecyclerViewClic
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.homeFragment2);
+                ParteEjercitarFragmentDirections.ActionParteEjercitarFragmentToHomeFragment2 accion = ParteEjercitarFragmentDirections.actionParteEjercitarFragmentToHomeFragment2();
+                accion.setVariablesGlobales(variableGlobales);
+
+                final NavController navController = Navigation.findNavController(view);
+                navController.navigate(accion);
             }
         });
     }

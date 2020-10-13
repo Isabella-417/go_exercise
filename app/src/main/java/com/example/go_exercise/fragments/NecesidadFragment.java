@@ -96,7 +96,11 @@ public class NecesidadFragment extends Fragment implements RecyclerViewClickInte
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.homeFragment2);
+                NecesidadFragmentDirections.ActionNecesidadFragment2ToHomeFragment2 action = NecesidadFragmentDirections.actionNecesidadFragment2ToHomeFragment2();
+                action.setVariablesGlobales(variableGlobales);
+                final NavController navController = Navigation.findNavController(view);
+
+                navController.navigate(action);
             }
         });
    }
