@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-
 import com.example.go_exercise.persistencia.DAO.RangoDificultadDAO;
 import com.example.go_exercise.persistencia.GoExerciseDataBase;
 import com.example.go_exercise.persistencia.entidades.Necesidad;

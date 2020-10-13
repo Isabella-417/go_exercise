@@ -8,7 +8,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.go_exercise.persistencia.entidades.Necesidad;
-import com.example.go_exercise.persistencia.entidades.Usuario;
 
 import java.util.List;
 

@@ -8,7 +8,6 @@ import androidx.lifecycle.AndroidViewModel;
 import com.example.go_exercise.persistencia.DAO.EnfoqueDAO;
 import com.example.go_exercise.persistencia.GoExerciseDataBase;
 import com.example.go_exercise.persistencia.entidades.Enfoque;
-import com.example.go_exercise.persistencia.entidades.Necesidad;
 
 import java.util.List;
 

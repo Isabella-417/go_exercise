@@ -1,6 +1,11 @@
 package com.example.go_exercise.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,17 +15,9 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
 import com.example.go_exercise.R;
 import com.example.go_exercise.persistencia.entidades.Enfoque;
-import com.example.go_exercise.persistencia.entidades.Necesidad;
 import com.example.go_exercise.persistencia.views.EnfoqueViewModel;
-import com.example.go_exercise.persistencia.views.NecesidadViewModel;
 import com.example.go_exercise.utilidades.ContenedorInfoAdapter;
 import com.example.go_exercise.utilidades.RecyclerViewClickInterface;
 import com.example.go_exercise.utilidades.ScreenItem;
@@ -68,7 +65,7 @@ public class ParteEjercitarFragment extends Fragment implements RecyclerViewClic
         for (int i = 0; i < enfoques.size(); i++){
             String titulo = enfoques.get(i).getNombre();
             String descripcion = enfoques.get(i).getDescripcion();
-            int imagen = 0;
+            int imagen = 0 ;
             ScreenItem item = new ScreenItem(titulo,descripcion, imagen);
             items.add(item);
         }
