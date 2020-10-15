@@ -12,8 +12,6 @@ public class Enfoque {
     private int id;
     private String nombre, descripcion;
 
-    public Enfoque() {
-    }
 
     public Enfoque(String nombre, String descripcion) {
         this.nombre = nombre;

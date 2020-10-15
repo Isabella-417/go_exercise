@@ -35,4 +35,9 @@ public class EjercicioViewModel extends AndroidViewModel {
     }
 
     public List<Ejercicio> getAll(){return ejercicioDao.getEjercicios();}
+
+    public List<Ejercicio> getEjercicios(String necesidad, String enfoque, String equipamento) {
+
+        return ejercicioDao.getEjercicioSelect(necesidad, enfoque, equipamento);
+    }
 }

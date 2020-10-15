@@ -1,6 +1,9 @@
 package com.example.go_exercise.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -8,23 +11,25 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.go_exercise.R;
+import com.example.go_exercise.persistencia.entidades.Ejercicio;
 import com.example.go_exercise.persistencia.entidades.LapsoTiempo;
-import com.example.go_exercise.persistencia.entidades.Necesidad;
-import com.example.go_exercise.persistencia.views.NecesidadViewModel;
+import com.example.go_exercise.persistencia.views.EjercicioViewModel;
 import com.example.go_exercise.utilidades.ContenedorInfoAdapter;
 import com.example.go_exercise.utilidades.RecyclerViewClickInterface;
 import com.example.go_exercise.utilidades.ScreenItem;
+import com.example.go_exercise.utilidades.VariableGlobales;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewClickInterface {
+
+    public EjercicioViewModel ejercicioViewModel;
+    List<Ejercicio> ejercicios;
+
+    VariableGlobales variableGlobales;
 
     List<LapsoTiempo> lapsos;
     RecyclerView recycler;
@@ -38,14 +43,22 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        int tiempo = obtenerTiempo()*4*40/60;
+       String tiempo_1 = String.valueOf(tiempo);
+       String tiempo_2 = String.valueOf(tiempo/2);
+       // String tiempo_1 = "hola";
+       // String tiempo_2 = "mundo";
+
+
+
         lapsos = new ArrayList<LapsoTiempo>();
 
-        LapsoTiempo lapso_1= new LapsoTiempo("15 minutos", 10);
-        LapsoTiempo lapso_2= new LapsoTiempo("30 minutos", 30);
-        LapsoTiempo lapso_3= new LapsoTiempo("45 minutos", 60);
+        LapsoTiempo lapso_1= new LapsoTiempo(tiempo_1+" minutos", 15);
+        LapsoTiempo lapso_2= new LapsoTiempo(tiempo_2+" minutos", 30);
         lapsos.add(lapso_1);
         lapsos.add(lapso_2);
-        lapsos.add(lapso_3);
+
     }
 
     @Override
@@ -96,4 +109,43 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
     public void onLongItemClick(int position) {
 
     }
+
+    public int obtenerTiempo(){
+        int tiempo = 0;
+
+        ejercicioViewModel = new EjercicioViewModel(getActivity().getApplication());
+        //ejercicios = ejercicioViewModel.getAll();
+
+        ejercicios = ejerciciosSelect(ejercicioViewModel);
+
+
+        tiempo = ejercicios.size();
+
+        return tiempo;
+    }
+
+    public List<Ejercicio> ejerciciosSelect(EjercicioViewModel ejercicioViewModel){
+
+        List<Ejercicio> lista = null;
+        if (getArguments() != null) {
+
+            HomeFragmentArgs args = HomeFragmentArgs.fromBundle(getArguments());
+
+            if (args.getVariablesGlobales() != null) {
+                variableGlobales = args.getVariablesGlobales();
+                String necesidad = variableGlobales.getNecesidad();
+                String enfoque = variableGlobales.getEnfoque();
+                String equipamento = variableGlobales.getEquipamiento();
+
+                lista = ejercicioViewModel.getEjercicios(necesidad, enfoque, equipamento);
+            }
+        }
+        return lista;
+    }
+
+
+
+
+
+
 }

@@ -18,8 +18,8 @@ public interface EjercicioDAO  {
     @Query("SELECT * FROM ejercicio")
     List<Ejercicio> getEjercicios();
 
-    @Query("SELECT * FROM ejercicio WHERE necesidad = :necesidad and enfoque = :enfoque or equipamento = :equipamento or equipamento = 'Ninguno'")
-    Ejercicio getEjercicio(String  necesidad, String enfoque, String equipamento);
+    @Query("SELECT * FROM ejercicio WHERE necesidad = :necesidad and enfoque = :enfoque and equipamento = :equipamento ")
+    List<Ejercicio> getEjercicioSelect(String  necesidad, String enfoque, String equipamento);
 
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(Ejercicio ejercicio);

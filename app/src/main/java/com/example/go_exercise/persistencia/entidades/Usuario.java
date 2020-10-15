@@ -2,6 +2,7 @@ package com.example.go_exercise.persistencia.entidades;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -15,9 +16,8 @@ public class Usuario implements Serializable {
     private String email;
     private String nombre, contrasena;
 
-    public Usuario() {
-    }
 
+    @Ignore
     public Usuario(String nombre, String email) {
         this.nombre = nombre;
         this.email = email;

@@ -14,8 +14,6 @@ public class Equipamiento implements Serializable {
     private int id;
     private String nombre, descripcion;
 
-    public Equipamiento() {
-    }
 
     public Equipamiento(String nombre, String descripcion) {
         this.nombre = nombre;

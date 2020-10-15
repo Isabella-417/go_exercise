@@ -26,6 +26,9 @@
             app:argType="com.example.go_exercise.utilidades.VariableGlobales"
             app:nullable="true"
             android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_homeFragment2_to_lapsoTiempoRutinaFragment"
+            app:destination="@id/lapsoTiempoRutinaFragment" />
     </fragment>
     <fragment
         android:id="@+id/necesidadFragment2"

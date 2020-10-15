@@ -1,13 +1,6 @@
 package com.example.go_exercise.fragments;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.go_exercise.R;
 import com.example.go_exercise.utilidades.VariableGlobales;
@@ -133,7 +132,9 @@ public class HomeFragment extends Fragment {
                 boolean formulario_diligenciado = necesidad!=null && dificultad!=null && enfoque!=null && equipamiento!=null;
 
                 if(formulario_diligenciado){
-                    navController.navigate(R.id.lapsoTiempoRutinaFragment);
+                    HomeFragmentDirections.ActionHomeFragment2ToLapsoTiempoRutinaFragment accion = HomeFragmentDirections.actionHomeFragment2ToLapsoTiempoRutinaFragment(variableGlobales);
+                    navController.navigate(accion);
+                    // navController.navigate(R.id.lapsoTiempoRutinaFragment);
                 }else{
                     Toast toast =  Toast.makeText(getContext(),
                             "Por favor seleccione todas las opciones", Toast.LENGTH_SHORT);
@@ -143,6 +144,10 @@ public class HomeFragment extends Fragment {
                 //HomeFragmentDirections.ActionHomeFragment2ToEquipamientoFragment accion = HomeFragmentDirections.actionHomeFragment2ToEquipamientoFragment(variableGlobales);
                 //navController.navigate(accion);
             }
+
+
+
+
         });
 
 
