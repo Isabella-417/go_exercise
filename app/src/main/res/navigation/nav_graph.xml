@@ -89,6 +89,9 @@
         <argument
             android:name="variablesGlobales"
             app:argType="com.example.go_exercise.utilidades.VariableGlobales" />
+        <action
+            android:id="@+id/action_lapsoTiempoRutinaFragment_to_iniciarRutinaFragment"
+            app:destination="@id/iniciarRutinaFragment" />
     </fragment>
     <fragment
         android:id="@+id/iniciarRutinaFragment"
@@ -98,5 +101,8 @@
         <action
             android:id="@+id/action_iniciarRutinaFragment_to_lapsoTiempoRutinaFragment"
             app:destination="@id/lapsoTiempoRutinaFragment" />
+        <argument
+            android:name="ejerciciosSeleccionados"
+            app:argType="com.example.go_exercise.utilidades.EjerciciosSeleccionados" />
     </fragment>
 </navigation>

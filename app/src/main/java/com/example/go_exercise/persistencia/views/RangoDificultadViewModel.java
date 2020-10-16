@@ -23,6 +23,8 @@ public class RangoDificultadViewModel extends AndroidViewModel {
         rangos = rangoDificultadDAO.getRangos();
     }
 
+    public RangoDificultad get(int i){return rangoDificultadDAO.getRangoDificultad(i);}
+
     public void insert(RangoDificultad... rangos) {
         rangoDificultadDAO.insert(rangos);
     }

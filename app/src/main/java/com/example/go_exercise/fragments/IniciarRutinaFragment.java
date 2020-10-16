@@ -2,6 +2,8 @@ package com.example.go_exercise.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,13 +11,29 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.go_exercise.R;
+import com.example.go_exercise.utilidades.EjerciciosSeleccionados;
 
 public class IniciarRutinaFragment extends Fragment {
 
+    public EjerciciosSeleccionados ejerciciosSeleccionados;
 
     public IniciarRutinaFragment() {
         // Required empty public constructor
+
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (getArguments() != null){
+            IniciarRutinaFragmentArgs args = IniciarRutinaFragmentArgs.fromBundle(getArguments());
+            if(args.getEjerciciosSeleccionados() != null){
+                ejerciciosSeleccionados =  args.getEjerciciosSeleccionados();
+            }
+        }
+    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -1,6 +1,9 @@
 package com.example.go_exercise.persistencia.entidades;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -8,7 +11,7 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity(tableName = "ejercicio")
-public class Ejercicio implements Serializable {
+public class Ejercicio implements Serializable, Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
@@ -21,6 +24,40 @@ public class Ejercicio implements Serializable {
         this.enfoque = enfoque;
         this.equipamento = equipamento;
     }
+
+    protected Ejercicio(Parcel in) {
+        id = in.readInt();
+        nombre = in.readString();
+        necesidad = in.readString();
+        enfoque = in.readString();
+        equipamento = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nombre);
+        dest.writeString(necesidad);
+        dest.writeString(enfoque);
+        dest.writeString(equipamento);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Ejercicio> CREATOR = new Creator<Ejercicio>() {
+        @Override
+        public Ejercicio createFromParcel(Parcel in) {
+            return new Ejercicio(in);
+        }
+
+        @Override
+        public Ejercicio[] newArray(int size) {
+            return new Ejercicio[size];
+        }
+    };
 
     @NonNull
     public int getId() {

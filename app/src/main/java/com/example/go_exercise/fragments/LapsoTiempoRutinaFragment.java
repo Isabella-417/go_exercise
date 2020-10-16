@@ -14,8 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.go_exercise.R;
 import com.example.go_exercise.persistencia.entidades.Ejercicio;
 import com.example.go_exercise.persistencia.entidades.LapsoTiempo;
+import com.example.go_exercise.persistencia.entidades.RangoDificultad;
 import com.example.go_exercise.persistencia.views.EjercicioViewModel;
+import com.example.go_exercise.persistencia.views.RangoDificultadViewModel;
 import com.example.go_exercise.utilidades.ContenedorInfoAdapter;
+import com.example.go_exercise.utilidades.EjerciciosSeleccionados;
 import com.example.go_exercise.utilidades.RecyclerViewClickInterface;
 import com.example.go_exercise.utilidades.ScreenItem;
 import com.example.go_exercise.utilidades.VariableGlobales;
@@ -28,6 +31,9 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
 
     public EjercicioViewModel ejercicioViewModel;
     List<Ejercicio> ejercicios;
+
+    public RangoDificultadViewModel rangoDificultadViewModel;
+    RangoDificultad rango;
 
     VariableGlobales variableGlobales;
 
@@ -99,9 +105,20 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
 
     @Override
     public void onItemClick(View view) {
-        final NavController navController = Navigation.findNavController(view);
 
-        navController.navigate(R.id.iniciarRutinaFragment);
+        //llenar con todos los ejercicios y un rango  - BORRAR -----------
+        ejercicioViewModel = new EjercicioViewModel(getActivity().getApplication());
+        ejercicios = ejercicioViewModel.getAll();
+
+        rangoDificultadViewModel = new RangoDificultadViewModel(getActivity().getApplication());
+        rango = rangoDificultadViewModel.get(3);
+
+        EjerciciosSeleccionados información_rutina = new EjerciciosSeleccionados(ejercicios,rango.getSeries(),rango.getTiempo());
+        //---------------------------------------------------------------
+
+        LapsoTiempoRutinaFragmentDirections.ActionLapsoTiempoRutinaFragmentToIniciarRutinaFragment accion = LapsoTiempoRutinaFragmentDirections.actionLapsoTiempoRutinaFragmentToIniciarRutinaFragment(información_rutina);
+        final NavController navController = Navigation.findNavController(view);
+        navController.navigate(accion);
 
     }
 
