@@ -59,9 +59,9 @@ public class IntroActivity extends AppCompatActivity {
 
         //llenado de la lista
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Ejercicios en casa","", R.drawable.img1));
-        mList.add(new ScreenItem("Rutinas personalizadas","", R.drawable.img2));
-        mList.add(new ScreenItem("Rutinas de todo tipo","", R.drawable.img3));
+        mList.add(new ScreenItem("Ejercicios en casa","", ""));
+        mList.add(new ScreenItem("Rutinas personalizadas","",""));
+        mList.add(new ScreenItem("Rutinas de todo tipo","",""));
 
         screenPager = findViewById(R.id.screen_viewpager);
         introViewPagerAdapter = new IntroViewPagerAdapter(this, mList);

@@ -11,11 +11,13 @@ public class Enfoque {
     @NonNull
     private int id;
     private String nombre, descripcion;
+    private String path_imagen;
 
 
-    public Enfoque(String nombre, String descripcion) {
+    public Enfoque(String nombre, String descripcion,String path_imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.path_imagen = path_imagen;
     }
 
     @NonNull
@@ -42,4 +44,8 @@ public class Enfoque {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public String getPath_imagen() { return path_imagen; }
+
+    public void setPath_imagen(String path_imagen) { this.path_imagen = path_imagen; }
 }

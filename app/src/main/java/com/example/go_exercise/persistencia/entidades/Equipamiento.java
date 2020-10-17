@@ -13,11 +13,13 @@ public class Equipamiento implements Serializable {
     @NonNull
     private int id;
     private String nombre, descripcion;
+    private String path_imagen;
 
 
-    public Equipamiento(String nombre, String descripcion) {
+    public Equipamiento(String nombre, String descripcion, String path_imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.path_imagen = path_imagen;
     }
 
     @NonNull
@@ -44,4 +46,8 @@ public class Equipamiento implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public String getPath_imagen() { return path_imagen; }
+
+    public void setPath_imagen(String path_imagen) { this.path_imagen = path_imagen; }
 }

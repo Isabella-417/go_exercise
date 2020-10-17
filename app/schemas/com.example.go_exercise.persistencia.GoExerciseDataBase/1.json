@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4168babdc457ce63ece4984c8add0f61",
+    "identityHash": "5a0e33a25361caf1cb7ee85c0f437af6",
     "entities": [
       {
         "tableName": "usuarios",
@@ -114,7 +114,7 @@
       },
       {
         "tableName": "enfoque",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT, `descripcion` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT, `descripcion` TEXT, `path_imagen` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -131,6 +131,12 @@
           {
             "fieldPath": "descripcion",
             "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "path_imagen",
+            "columnName": "path_imagen",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -146,7 +152,7 @@
       },
       {
         "tableName": "equipamiento",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT, `descripcion` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT, `descripcion` TEXT, `path_imagen` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -163,6 +169,12 @@
           {
             "fieldPath": "descripcion",
             "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "path_imagen",
+            "columnName": "path_imagen",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -235,7 +247,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4168babdc457ce63ece4984c8add0f61\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5a0e33a25361caf1cb7ee85c0f437af6\")"
     ]
   }
 }

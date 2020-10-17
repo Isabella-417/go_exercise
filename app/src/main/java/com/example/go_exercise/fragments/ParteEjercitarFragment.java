@@ -54,7 +54,7 @@ public class ParteEjercitarFragment extends Fragment implements RecyclerViewClic
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<ScreenItem> enfoques_parsed = parseData(enfoques);
-        ContenedorInfoAdapter contenedor_datos = new ContenedorInfoAdapter(enfoques_parsed, this);
+        ContenedorInfoAdapter contenedor_datos = new ContenedorInfoAdapter(enfoques_parsed, this,getContext());
         recycler.setAdapter(contenedor_datos);
         return view;
     }
@@ -65,7 +65,7 @@ public class ParteEjercitarFragment extends Fragment implements RecyclerViewClic
         for (int i = 0; i < enfoques.size(); i++){
             String titulo = enfoques.get(i).getNombre();
             String descripcion = enfoques.get(i).getDescripcion();
-            int imagen = 0 ;
+            String imagen = enfoques.get(i).getPath_imagen();
             ScreenItem item = new ScreenItem(titulo,descripcion, imagen);
             items.add(item);
         }

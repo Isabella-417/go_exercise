@@ -96,7 +96,7 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
             String titulo = lapsos.get(i).getNombre();
             String descripcion = String.valueOf(lapsos.get(i).getMinutos());
             int imagen = 0;
-            ScreenItem item = new ScreenItem(titulo,descripcion, imagen);
+            ScreenItem item = new ScreenItem(titulo,descripcion, "");
             items.add(item);
         }
 

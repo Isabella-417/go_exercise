@@ -69,8 +69,7 @@ public class NecesidadFragment extends Fragment implements RecyclerViewClickInte
         for (int i = 0; i < necesidades.size(); i++){
             String titulo = necesidades.get(i).getNombre();
             String descripcion = necesidades.get(i).getDescripcion();
-            int imagen = 0;
-            ScreenItem item = new ScreenItem(titulo,descripcion, imagen);
+            ScreenItem item = new ScreenItem(titulo,descripcion, "");
             items.add(item);
         }
 

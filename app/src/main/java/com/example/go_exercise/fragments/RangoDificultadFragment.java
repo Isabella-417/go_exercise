@@ -69,8 +69,7 @@ public class RangoDificultadFragment extends Fragment implements RecyclerViewCli
         for (int i = 0; i < rangos.size(); i++){
             String titulo = rangos.get(i).getNombre();
             String descripcion =  "No. Series : "+String.valueOf(rangos.get(i).getSeries())+"\nTiempo : "+String.valueOf(rangos.get(i).getTiempo()+" segundos");
-            int imagen = 0;
-            ScreenItem item = new ScreenItem(titulo,descripcion, imagen);
+            ScreenItem item = new ScreenItem(titulo,descripcion, "");
             items.add(item);
         }
 

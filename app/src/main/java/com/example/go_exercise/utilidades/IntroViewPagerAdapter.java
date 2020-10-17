@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
 import com.example.go_exercise.R;
 
 import java.util.List;
@@ -38,9 +39,12 @@ public class IntroViewPagerAdapter extends PagerAdapter {
 
         title.setText(mListScreen.get(position).getTitle());
         description.setText(mListScreen.get(position).getDescription());
-        imgSlide.setImageResource(mListScreen.get(position).getScreenimg());
 
-        container.addView(layoutScreen);
+
+        if(!mListScreen.get(position).getScreenimg().isEmpty()){
+            String url = mListScreen.get(position).getScreenimg();
+            Glide.with(mContext).load(url).dontAnimate().into(imgSlide);
+        }
 
         return layoutScreen;
     }

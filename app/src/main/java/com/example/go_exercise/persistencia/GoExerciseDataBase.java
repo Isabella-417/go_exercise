@@ -122,17 +122,17 @@ public abstract class GoExerciseDataBase extends RoomDatabase {
 
             //enfoques
 
-            Enfoque enfoque_1 = new Enfoque("Todo el cuerpo", "");
-            Enfoque enfoque_2 = new Enfoque("Tren superior", "");
-            Enfoque enfoque_3 = new Enfoque("Tren inferior","");
+            Enfoque enfoque_1 = new Enfoque("Todo el cuerpo", "","https://i.ibb.co/WxZb3R5/todo-cuerpo.png");
+            Enfoque enfoque_2 = new Enfoque("Tren superior", "","https://i.ibb.co/0n6cP5d/parte-superior.png");
+            Enfoque enfoque_3 = new Enfoque("Tren inferior","","https://i.ibb.co/9bM0V6s/parte-inferior.png");
 
             enfoqueDao.insert(enfoque_1,enfoque_2,enfoque_3);
 
             //equipamientos
-            Equipamiento equipamiento_1 = new Equipamiento("Mancuernas", "");
-            Equipamiento equipamiento_2 = new Equipamiento("Barras", "");
-            Equipamiento equipamiento_3 = new Equipamiento("Ligas","");
-            Equipamiento equipamiento_4 = new Equipamiento("Ninguno","");
+            Equipamiento equipamiento_1 = new Equipamiento("Mancuernas", "","https://i.ibb.co/nMQMG60/mancuernas.png");
+            Equipamiento equipamiento_2 = new Equipamiento("Lazos", "","https://i.ibb.co/xFGDnKZ/lazos.png");
+            Equipamiento equipamiento_3 = new Equipamiento("Pelota","","https://i.ibb.co/bK0wfDZ/pelotas.png");
+            Equipamiento equipamiento_4 = new Equipamiento("Ninguno","","");
 
             equipamientoDao.insert(equipamiento_1,equipamiento_2,equipamiento_3,equipamiento_4);
 

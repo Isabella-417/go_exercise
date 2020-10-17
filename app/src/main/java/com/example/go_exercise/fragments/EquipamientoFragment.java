@@ -54,11 +54,11 @@ public class EquipamientoFragment extends Fragment implements RecyclerViewClickI
         equipamientos = equipamientoViewModel.getAll();
 
         recycler = (RecyclerView) view.findViewById(R.id.contenedor_equipamientos);
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
 
         List<ScreenItem> equipamientos_parsed = parseData(equipamientos);
 
-        ContenedorInfoAdapter contenedor_datos = new ContenedorInfoAdapter(equipamientos_parsed, this);
+        ContenedorInfoAdapter contenedor_datos = new ContenedorInfoAdapter(equipamientos_parsed, this,getContext());
 
         recycler.setAdapter(contenedor_datos);
 
@@ -71,7 +71,7 @@ public class EquipamientoFragment extends Fragment implements RecyclerViewClickI
         for (int i = 0; i < equipamientos.size(); i++){
             String titulo = equipamientos.get(i).getNombre();
             String descripcion = equipamientos.get(i).getDescripcion();
-            int imagen = 0;
+            String imagen = equipamientos.get(i).getPath_imagen();
             ScreenItem item = new ScreenItem(titulo,descripcion, imagen);
             items.add(item);
         }

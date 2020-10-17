@@ -1,5 +1,6 @@
 package com.example.go_exercise.utilidades;
 
+import android.content.Context;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.go_exercise.R;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
     List<ScreenItem> listaDatos;
     private RecyclerViewClickInterface recyclerViewClickInterface;
     private int tipo_plantilla = 0;
+    private Context context;
 
 
     public ContenedorInfoAdapter(List<ScreenItem> listaDatos, RecyclerViewClickInterface recyclerViewClickInterface) {
@@ -33,6 +36,11 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
         this.tipo_plantilla = tipo_plantilla;
     }
 
+    public ContenedorInfoAdapter(List<ScreenItem> listaDatos, RecyclerViewClickInterface recyclerViewClickInterface, Context context) {
+        this.listaDatos = listaDatos;
+        this.recyclerViewClickInterface = recyclerViewClickInterface;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -63,7 +71,6 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
 
     @Override
     public int getItemCount() {
-        System.out.println("numero de datos : "+ String.valueOf(listaDatos.size()));
         return listaDatos.size();
     }
 
@@ -87,6 +94,10 @@ public class ContenedorInfoAdapter extends RecyclerView.Adapter<ContenedorInfoAd
         public void asignarDatos(ScreenItem screenItem) {
             //icono_contenedor.setImageResource(screenItem.getScreenimg());
             nombre_contenedor.setText(screenItem.getTitle());
+            if(!screenItem.getScreenimg().isEmpty()){
+                String url = screenItem.getScreenimg();
+                Glide.with(context).load(url).dontAnimate().into(icono_contenedor);
+            }
             if(tipo_plantilla == 0) {
                 descripcion_contenedor.setText(screenItem.getDescription());
             }
