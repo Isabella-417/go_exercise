@@ -79,6 +79,7 @@
         android:background="@drawable/btn_borde_redondo"
         android:onClick="onModulo"
         android:text="Registrarse"
+        android:textColor="@color/white"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"

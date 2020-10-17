@@ -111,7 +111,7 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
         ejercicios = ejercicioViewModel.getAll();
 
         rangoDificultadViewModel = new RangoDificultadViewModel(getActivity().getApplication());
-        rango = rangoDificultadViewModel.get(3);
+        rango = rangoDificultadViewModel.get(1);
 
         EjerciciosSeleccionados información_rutina = new EjerciciosSeleccionados(ejercicios,rango.getSeries(),rango.getTiempo());
         //---------------------------------------------------------------

@@ -6,6 +6,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -17,7 +18,10 @@ public class Ejercicio implements Serializable, Parcelable {
     @NonNull
     private int id;
     private String nombre, necesidad, enfoque, equipamento;
+    private String descripcion_corta;
+    private String ruta_gif;
 
+    @Ignore
     public Ejercicio(String nombre, String necesidad, String enfoque, String equipamento) {
         this.nombre = nombre;
         this.necesidad = necesidad;
@@ -25,21 +29,35 @@ public class Ejercicio implements Serializable, Parcelable {
         this.equipamento = equipamento;
     }
 
+    public Ejercicio(String nombre, String descripcion_corta, String necesidad, String enfoque, String equipamento,String ruta_gif) {
+        this.nombre = nombre;
+        this.descripcion_corta = descripcion_corta;
+        this.necesidad = necesidad;
+        this.enfoque = enfoque;
+        this.equipamento = equipamento;
+        this.ruta_gif = ruta_gif;
+    }
+
+
     protected Ejercicio(Parcel in) {
         id = in.readInt();
         nombre = in.readString();
+        descripcion_corta = in.readString();
         necesidad = in.readString();
         enfoque = in.readString();
         equipamento = in.readString();
+        ruta_gif = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nombre);
+        dest.writeString(descripcion_corta);
         dest.writeString(necesidad);
         dest.writeString(enfoque);
         dest.writeString(equipamento);
+        dest.writeString(ruta_gif);
     }
 
     @Override
@@ -100,6 +118,14 @@ public class Ejercicio implements Serializable, Parcelable {
         this.equipamento = equipamento;
     }
 
+    public String getRuta_gif() {return ruta_gif; }
+
+    public void setRuta_gif(String ruta_gif) {this.ruta_gif = ruta_gif; }
+
+    public String getDescripcion_corta() {return descripcion_corta; }
+
+    public void setDescripcion_corta(String descripcion_corta) {this.descripcion_corta = descripcion_corta; }
+
     @Override
     public String toString() {
         return "Ejercicio{" +
@@ -108,6 +134,8 @@ public class Ejercicio implements Serializable, Parcelable {
                 ", necesidad='" + necesidad + '\'' +
                 ", enfoque='" + enfoque + '\'' +
                 ", equipamento='" + equipamento + '\'' +
+                ", descripcion_corta='" + descripcion_corta + '\'' +
+                ", ruta_gif='" + ruta_gif + '\'' +
                 '}';
     }
 }

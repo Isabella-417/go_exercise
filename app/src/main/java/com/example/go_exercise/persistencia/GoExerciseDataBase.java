@@ -113,11 +113,12 @@ public abstract class GoExerciseDataBase extends RoomDatabase {
             necesidadDao.insert(necesidad_1,necesidad_2);
 
             //rango de dificultad
+            RangoDificultad rango_0 = new RangoDificultad("Junior" , 5 , 2);
             RangoDificultad rango_1 = new RangoDificultad("Principiante",20,2);
             RangoDificultad rango_2 = new RangoDificultad("Intermedio",40,4);
             RangoDificultad rango_3 = new RangoDificultad("Experto",60,8);
 
-            rangoDao.insert(rango_1,rango_2,rango_3);
+            rangoDao.insert(rango_0,rango_1,rango_2,rango_3);
 
             //enfoques
 
@@ -137,14 +138,31 @@ public abstract class GoExerciseDataBase extends RoomDatabase {
 
 
             //Ejercicios
-            Ejercicio ejercicio_1 = new Ejercicio("Sentadillas", "Tonificación muscular","Tren inferior","Ninguno");
-            Ejercicio ejercicio_2 = new Ejercicio("Tijera", "Tonificación muscular","Tren inferior","Mancuernas");
-            Ejercicio ejercicio_3 = new Ejercicio("Puente", "Tonificación muscular","Tren inferior","Mancuernas");
-            Ejercicio ejercicio_4 = new Ejercicio("Gemelos", "Tonificación muscular","Tren inferior","Ninguno");
-            Ejercicio ejercicio_5 = new Ejercicio("V-Ups", "Tonificación muscular","Todo el cuerpo","ninguno");
-            Ejercicio ejercicio_6 = new Ejercicio("Sentadilla lateral desplazamiento", "Tonificación muscular","Tren inferior","Ligas");
+            Ejercicio ejercicio_1 = new Ejercicio(
+                    "Plancha","(Glúteos,isquiotibiales,caderas,hombros y brazos)",
+                    "Tonificación muscular", "Todo el cuerpo","Ninguno",
+                    "https://www.spotebi.com/wp-content/uploads/2016/02/plank-bird-dog-exercise-illustration-spotebi.gif");
 
-            ejercicioDao.insert(ejercicio_1,ejercicio_2,ejercicio_3,ejercicio_4,ejercicio_5,ejercicio_6);
+            Ejercicio ejercicio_2 = new Ejercicio(
+                    "Estocada hacia atrás","(Glúteos,cuadrátriceps,flexores de cadera)",
+                    "Tonificación muscular","Tren inferior","Ninguno",
+                    "https://www.spotebi.com/wp-content/uploads/2016/03/lunge-back-kick-exercise-illustration-spotebi.gif");
+
+            Ejercicio ejercicio_3 = new Ejercicio(
+                    "Gate swings","(Gluteos,núcleo,muslo interior)",
+                    "Tonificación muscular","Tren inferior","Ninguno",
+                    "https://www.spotebi.com/wp-content/uploads/2016/02/gate-swings-exercise-illustration-spotebi.gif");
+
+            Ejercicio ejercicio_4 = new Ejercicio(
+                    "Sentadilla con una sola pierna","(Gluteos,caderas)",
+                    "Tonificación muscular","Tren inferior","Ninguno",
+                    "https://www.spotebi.com/wp-content/uploads/2018/06/single-leg-squat-kickback-exercise-illustration-spotebi.gif");
+
+            Ejercicio ejercicio_5 = new Ejercicio(
+                    "Balanceo de brazos","(Hombros,brazos)",
+                    "Tonificación muscular","Tren superior","Ninguno",
+                    "https://www.spotebi.com/wp-content/uploads/2016/06/arm-swings-exercise-illustration-spotebi.gif");
+            ejercicioDao.insert(ejercicio_1,ejercicio_2,ejercicio_3,ejercicio_4,ejercicio_5);
 
             return null;
         }

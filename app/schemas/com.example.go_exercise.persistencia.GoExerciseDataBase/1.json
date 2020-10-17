@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "be4ddc3f815eaf116b3d16c425f55d38",
+    "identityHash": "4168babdc457ce63ece4984c8add0f61",
     "entities": [
       {
         "tableName": "usuarios",
@@ -178,7 +178,7 @@
       },
       {
         "tableName": "ejercicio",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT, `necesidad` TEXT, `enfoque` TEXT, `equipamento` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT, `necesidad` TEXT, `enfoque` TEXT, `equipamento` TEXT, `descripcion_corta` TEXT, `ruta_gif` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -209,6 +209,18 @@
             "columnName": "equipamento",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "descripcion_corta",
+            "columnName": "descripcion_corta",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ruta_gif",
+            "columnName": "ruta_gif",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -223,7 +235,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"be4ddc3f815eaf116b3d16c425f55d38\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4168babdc457ce63ece4984c8add0f61\")"
     ]
   }
 }

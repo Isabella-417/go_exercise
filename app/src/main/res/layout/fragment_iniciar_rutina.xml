@@ -28,13 +28,20 @@
             android:background="#FFFFFF"
             android:orientation="horizontal">
 
-            <pl.droidsonroids.gif.GifImageView
+            <ImageView
+                android:id="@+id/gifImageView"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ejercicio1"
+                android:layout_height="wrap_content"/>
+
+
+            <!--<pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gifImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ejercicio1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />-->
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -43,13 +50,15 @@
     <TextView
         android:id="@+id/tv_iniciar_rutina_descripcion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
         android:fontFamily="@font/rubik_regular"
         android:text="Nombre del ejercicio"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.604"
@@ -58,8 +67,8 @@
 
     <Button
         android:id="@+id/btn_descripcion_ejercicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/btn_borde_redondo"
         android:fontFamily="@font/rubik_regular"
@@ -73,26 +82,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_iniciar_rutina_descripcion" />
 
-    <TextView
-        android:id="@+id/tv_cronometro_ejercicio"
+
+    <Chronometer
+        android:id="@+id/cm_cronometro_ejercicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="00:00"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="45dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_descripcion_ejercicio" />
-
+        app:layout_constraintTop_toBottomOf="@+id/btn_descripcion_ejercicio"
+        app:layout_constraintVertical_bias="0.25" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fb_retroceder_reproduccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/borde_redondo"
         android:src="@drawable/icono_atras"
         app:borderWidth="12dp"
@@ -109,10 +124,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_marginStart="36dp"
-        android:background="@drawable/borde_redondo"
-        android:src="@drawable/icono_pausar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
 
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/borde_redondo"
+        android:src="@drawable/icono_iniciar_rutina"
         app:borderWidth="12dp"
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
@@ -128,8 +146,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@drawable/borde_redondo"
+        android:layout_marginStart="10dp"
 
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/borde_redondo"
         android:src="@drawable/icono_adelante"
         app:borderWidth="12dp"
         app:fabSize="mini"
@@ -145,40 +167,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="510dp" />
+        app:layout_constraintGuide_begin="530dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="563dp" />
+        app:layout_constraintGuide_begin="594dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="134dp" />
+        app:layout_constraintGuide_begin="153dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="213dp" />
+        app:layout_constraintGuide_begin="238dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="287dp" />
+        app:layout_constraintGuide_begin="355dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="66dp" />
+        app:layout_constraintGuide_begin="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

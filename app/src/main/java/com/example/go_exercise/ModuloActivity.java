@@ -12,4 +12,7 @@ public class ModuloActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modulo);
     }
+    @Override
+    public void onBackPressed() {
+    }
 }

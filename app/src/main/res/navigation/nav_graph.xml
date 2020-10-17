@@ -104,5 +104,8 @@
         <argument
             android:name="ejerciciosSeleccionados"
             app:argType="com.example.go_exercise.utilidades.EjerciciosSeleccionados" />
+        <action
+            android:id="@+id/action_iniciarRutinaFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
 </navigation>

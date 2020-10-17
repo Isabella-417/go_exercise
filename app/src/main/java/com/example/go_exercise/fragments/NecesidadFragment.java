@@ -106,6 +106,7 @@ public class NecesidadFragment extends Fragment implements RecyclerViewClickInte
    }
 
 
+
     @Override
     public void onItemClick(View view) {
         TextView valor_escogido = (TextView) view.findViewById(R.id.tv_nombre_contenedor_elemento);
