@@ -20,6 +20,9 @@ public interface RangoDificultadDAO {
     @Query("SELECT * FROM rango_dificultad WHERE id = :id")
     RangoDificultad getRangoDificultad(int id);
 
+    @Query("SELECT * FROM rango_dificultad WHERE nombre = :nombre")
+    RangoDificultad getRangoDificultadByName(String nombre);
+
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     void insert(RangoDificultad rangoDificultad);
 

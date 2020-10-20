@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.2'
+        classpath 'com.android.tools.build:gradle:4.1.0'
         def nav_version = "2.3.0"
 
         //Safe Args -- type-safe navigation and access to any associated arguments
