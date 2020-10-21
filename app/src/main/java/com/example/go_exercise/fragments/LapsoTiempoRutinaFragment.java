@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -73,7 +74,7 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
         rangoSelect();
         ejerciciosSelect();
 
-        int tiempo = listaEjercios.size()*rango.getSeries()*rango.getTiempo()/60;
+        int tiempo = listaEjercios.size();
         System.out.println("este es el tiempo escogido: "+String.valueOf(tiempo));
        // String tiempo_1 = "hola";
        // String tiempo_2 = "mundo";
@@ -88,10 +89,10 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
 
     public void agregarLapsos(List<LapsoTiempo> lapsos, int tiempo, List<SelectExcercise> listaLapsos){
 
-        if (tiempo>6){
-            int tiempo1 = tiempo/3;
-            int tiempo2 = 2*tiempo/3;
-            int tiempo3 = tiempo;
+        if (tiempo>=3){
+            int tiempo1 = (tiempo/3)*rango.getSeries()*rango.getTiempo()/60;
+            int tiempo2 = (2*tiempo/3)*rango.getSeries()*rango.getTiempo()/60;
+            int tiempo3 = tiempo*rango.getSeries()*rango.getTiempo()/60;
 
 
             String tiempo_1 = String.valueOf(tiempo1);
@@ -107,9 +108,9 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
             lapsos.add(lapso_3);
 
             int cant1 = listaEjercios.size()/3;
-            System.out.println("Mostrando la cantidad 1 "+ cant1);
             int cant2 = 2*listaEjercios.size()/3;
             int cant3 = listaEjercios.size();
+            System.out.println("Mostar lista ejercicios de lapso: "+listaEjercios.size());
             SelectExcercise select1 = new SelectExcercise(tiempo_1,cant1);
             SelectExcercise select2 = new SelectExcercise(tiempo_2,cant2);
             SelectExcercise select3 = new SelectExcercise(tiempo_3,cant3);
@@ -118,9 +119,9 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
             listaLapsos.add(select2);
             listaLapsos.add(select3);
         }
-        if ((tiempo>=4) && (tiempo<=6)){
-            int tiempo1 = tiempo/2;
-            int tiempo2 = tiempo;
+        if (tiempo==2){
+            int tiempo1 = (tiempo/2)*rango.getSeries()*rango.getTiempo()/60;
+            int tiempo2 = tiempo*rango.getSeries()*rango.getTiempo()/60;
 
             String tiempo_1 = String.valueOf(tiempo1);
             String tiempo_2 = String.valueOf(tiempo2);
@@ -139,8 +140,8 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
             listaLapsos.add(select2);
         }
 
-        if ((tiempo>0) && (tiempo<4)){
-            int tiempo1 = tiempo;
+        if (tiempo>0){
+            int tiempo1 = tiempo*rango.getSeries()*rango.getTiempo()/60;
 
             String tiempo_1 = String.valueOf(tiempo1);
 
@@ -205,26 +206,44 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
     @Override
     public void onItemClick(View view) {
 
+
+
         TextView valor_escogido = (TextView) view.findViewById(R.id.tv_nombre_contenedor_elemento);
         String nombre_valor_escogido = String.valueOf(valor_escogido.getText().charAt(0));
-        //System.out.println("Actual seleccion item: "+nombre_valor_escogido);
+        System.out.println("Actual seleccion item: "+nombre_valor_escogido);
 
 
        // ejercicioViewModel = new EjercicioViewModel(getActivity().getApplication());
         //ejercicios = ejercicioViewModel.getAll();
         //llenar con todos los ejercicios y un rango  - BORRAR -----------
 
-        ejercicios = asignarEjercicios(nombre_valor_escogido);
 
 
-        EjerciciosSeleccionados información_rutina = new EjerciciosSeleccionados(ejercicios,rango.getSeries(),rango.getTiempo());
+        if(nombre_valor_escogido.equals("U")){
+
+            final NavController navController = Navigation.findNavController(view);
+            navController.navigate(R.id.homeFragment2);
+            Toast.makeText(getContext(), "Por favor seleccione otra configuración", Toast.LENGTH_SHORT).show();
 
 
-        //---------------------------------------------------------------
 
-        LapsoTiempoRutinaFragmentDirections.ActionLapsoTiempoRutinaFragmentToIniciarRutinaFragment accion = LapsoTiempoRutinaFragmentDirections.actionLapsoTiempoRutinaFragmentToIniciarRutinaFragment(información_rutina);
-        final NavController navController = Navigation.findNavController(view);
-        navController.navigate(accion);
+        }else{
+            ejercicios = asignarEjercicios(nombre_valor_escogido);
+            System.out.println("Este es el ejercicio: "+ejercicios.size());
+
+            EjerciciosSeleccionados información_rutina = new EjerciciosSeleccionados(ejercicios,rango.getSeries(),rango.getTiempo());
+
+
+            //---------------------------------------------------------------
+
+            LapsoTiempoRutinaFragmentDirections.ActionLapsoTiempoRutinaFragmentToIniciarRutinaFragment accion = LapsoTiempoRutinaFragmentDirections.actionLapsoTiempoRutinaFragmentToIniciarRutinaFragment(información_rutina);
+            final NavController navController = Navigation.findNavController(view);
+            navController.navigate(accion);
+
+        }
+
+
+
 
     }
 
@@ -234,10 +253,11 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
         for (int i = 0; i<listaLapsos.size(); i++){
            // System.out.println("ojo minuto de la lista: "+listaLapsos.get(i).getMinutos());
             if(nombre_valor_escogido.equals(listaLapsos.get(i).getMinutos())){
-             //   System.out.println("valor escogido: "+nombre_valor_escogido);
-               // System.out.println("valosr lista: "+listaLapsos.get(i).getMinutos());
+                System.out.println("valor escogido: "+nombre_valor_escogido);
+                System.out.println("valosr lista: "+listaLapsos.get(i).getMinutos());
 
-                for(int j=0; j<listaLapsos.get(i).getCantEjercicios(); j++){
+                for(int j=0; j<=listaLapsos.get(i).getCantEjercicios(); j++){
+                    System.out.println("Alguno nombre: "+listaEjercios.get(j).getNombre());
                     ejerciciosSel.add(listaEjercios.get(j));
                 }
 

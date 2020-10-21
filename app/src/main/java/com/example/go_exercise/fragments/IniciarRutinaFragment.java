@@ -42,6 +42,7 @@ public class IniciarRutinaFragment extends Fragment{
     private long pausa_compensacion;
     private int intervalo_tiempo = 0;
     private int indice_ejercicio = 0;
+    private int contSerie =0;
     private String url_gif = "";
 
 
@@ -88,10 +89,11 @@ public class IniciarRutinaFragment extends Fragment{
 
         if (getArguments() != null){
             IniciarRutinaFragmentArgs args = IniciarRutinaFragmentArgs.fromBundle(getArguments());
-            if(args.getEjerciciosSeleccionados() != null){
-                ejerciciosSeleccionados =  args.getEjerciciosSeleccionados();
+            if(args.getEjerciciosSeleccionados() != null) {
+                ejerciciosSeleccionados = args.getEjerciciosSeleccionados();
 
-                intervalo_tiempo = ejerciciosSeleccionados.getTiempo() *  ejerciciosSeleccionados.getSeries();
+            //intervalo_tiempo = ejerciciosSeleccionados.getTiempo() *  ejerciciosSeleccionados.getSeries();
+                intervalo_tiempo = ejerciciosSeleccionados.getTiempo();
                 ejercicios = ejerciciosSeleccionados.getEjercicios();
                 tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo) );
 
@@ -111,6 +113,7 @@ public class IniciarRutinaFragment extends Fragment{
         final FloatingActionButton btn_inicio_rutina = view.findViewById(R.id.fb_pausar_reproduccion);
         final FloatingActionButton btn_adelantar_rutina = view.findViewById(R.id.fb_adelantar_reproduccion);
         final FloatingActionButton btn_retroceder_rutina = view.findViewById(R.id.fb_retroceder_reproduccion);
+        final Button btn_home = view.findViewById(R.id.btn_home);
         final NavController navController = Navigation.findNavController(view);
 
 
@@ -139,8 +142,17 @@ public class IniciarRutinaFragment extends Fragment{
                         nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
                         descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
                         indice_ejercicio+=1;
+
+                        if(indice_ejercicio == ejercicios.size()){
+                            indice_ejercicio = 0;
+                            contSerie +=1;
+                        }
+                        if (contSerie == ejerciciosSeleccionados.getSeries()){
+                            indice_ejercicio = ejercicios.size();
+                        }
                     }
                 }catch (Exception BoundException){
+                    System.out.println("este es el exeption: "+ BoundException);
                     navController.navigate(R.id.homeFragment2);
                     Toast.makeText(getContext(), "Rutina completada", Toast.LENGTH_SHORT).show();
 
@@ -172,12 +184,175 @@ public class IniciarRutinaFragment extends Fragment{
         btn_adelantar_rutina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(contSerie==(ejerciciosSeleccionados.getSeries() -1) && indice_ejercicio == (ejercicios.size() -1) ){
+
+                    Toast.makeText(getContext(), "Llegaste al final de la Rutina", Toast.LENGTH_SHORT).show();
+
+
+                }else{
+
+                    if (indice_ejercicio==(ejercicios.size()-1) && contSerie<(ejerciciosSeleccionados.getSeries() -1)) {
+                        indice_ejercicio = 0;
+                        contSerie += 1;
+                        System.out.println("Mostrar tamaño ejercicio: " + (ejercicios.size()-1));
+                        System.out.println("Mostrar indice: " + indice_ejercicio);
+                        System.out.println("Mostrar serie: " + contSerie);
+                        tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo));
+
+                        nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
+                        descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
+
+                        if (gif_ejercicio != null) {
+                            url_gif = ejercicios.get(indice_ejercicio).getRuta_gif();
+                            Glide.with(getContext()).load(url_gif).dontAnimate().into(gif_ejercicio);
+                            enPausa = true;
+                            tiempo.stop();
+                            btn_inicio_rutina.setImageResource(R.drawable.icono_iniciar_rutina);
+
+
+                        }
+                    }else {
+
+                        if(indice_ejercicio<(ejercicios.size() - 1) && contSerie==(ejerciciosSeleccionados.getSeries() -1)) {
+
+                            indice_ejercicio += 1;
+                            System.out.println("noelse Mostrar indice: " + indice_ejercicio);
+                            tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo));
+
+                            nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
+                            descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
+
+                            if (gif_ejercicio != null) {
+                                url_gif = ejercicios.get(indice_ejercicio).getRuta_gif();
+                                Glide.with(getContext()).load(url_gif).dontAnimate().into(gif_ejercicio);
+                                enPausa = true;
+                                tiempo.stop();
+                                btn_inicio_rutina.setImageResource(R.drawable.icono_iniciar_rutina);
+
+                            }
+                        }else{
+
+                            if(indice_ejercicio < (ejercicios.size() - 1) && contSerie<(ejerciciosSeleccionados.getSeries() -1)){
+
+                                indice_ejercicio += 1;
+                                System.out.println("Else Mostrar indice: " + indice_ejercicio);
+                                tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo));
+
+                                nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
+                                descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
+
+                                if (gif_ejercicio != null) {
+                                    url_gif = ejercicios.get(indice_ejercicio).getRuta_gif();
+                                    Glide.with(getContext()).load(url_gif).dontAnimate().into(gif_ejercicio);
+                                    enPausa = true;
+                                    tiempo.stop();
+                                    btn_inicio_rutina.setImageResource(R.drawable.icono_iniciar_rutina);
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+
+                }
+
             }
+
+
         });
 
         btn_retroceder_rutina.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {}
+            public void onClick(View view) {
+
+
+                if(contSerie==0 && indice_ejercicio == 0 ){
+
+                    Toast.makeText(getContext(), "Llegaste al Inicio de la Rutina", Toast.LENGTH_SHORT).show();
+
+
+                }else{
+
+                    if (indice_ejercicio==0 && contSerie>0) {
+                        indice_ejercicio = ejercicios.size() - 1;
+                        contSerie -= 1;
+                        System.out.println("Mostrar tamaño ejercicio: " + (ejercicios.size()-1));
+                        System.out.println("Mostrar indice: " + indice_ejercicio);
+                        System.out.println("Mostrar serie: " + contSerie);
+                        tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo ));
+
+                        nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
+                        descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
+
+                        if (gif_ejercicio != null) {
+                            url_gif = ejercicios.get(indice_ejercicio).getRuta_gif();
+                            Glide.with(getContext()).load(url_gif).dontAnimate().into(gif_ejercicio);
+                            enPausa = true;
+                            tiempo.stop();
+                            btn_inicio_rutina.setImageResource(R.drawable.icono_iniciar_rutina);
+
+
+                        }
+                    }else {
+
+                        if(indice_ejercicio>0 && contSerie== 0) {
+
+                            indice_ejercicio -= 1;
+                            System.out.println("noelse Mostrar indice: " + indice_ejercicio);
+                            tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo));
+
+                            nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
+                            descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
+
+                            if (gif_ejercicio != null) {
+                                url_gif = ejercicios.get(indice_ejercicio).getRuta_gif();
+                                Glide.with(getContext()).load(url_gif).dontAnimate().into(gif_ejercicio);
+                                enPausa = true;
+                                tiempo.stop();
+                                btn_inicio_rutina.setImageResource(R.drawable.icono_iniciar_rutina);
+
+                            }
+                        }else{
+
+                            if(indice_ejercicio > 0 && contSerie>0){
+
+                                indice_ejercicio -= 1;
+                                System.out.println("Else Mostrar indice: " + indice_ejercicio);
+                                tiempo.setBase(SystemClock.elapsedRealtime() + obtenerMilisegundosRango(intervalo_tiempo));
+
+                                nombre_ejercicio.setText(ejercicios.get(indice_ejercicio).getNombre());
+                                descripcion_ejercicio.setText(ejercicios.get(indice_ejercicio).getDescripcion_corta());
+
+                                if (gif_ejercicio != null) {
+                                    url_gif = ejercicios.get(indice_ejercicio).getRuta_gif();
+                                    Glide.with(getContext()).load(url_gif).dontAnimate().into(gif_ejercicio);
+                                    enPausa = true;
+                                    tiempo.stop();
+                                    btn_inicio_rutina.setImageResource(R.drawable.icono_iniciar_rutina);
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+
+                }
+
+
+            }
+        });
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                IniciarRutinaFragmentDirections.ActionIniciarRutinaFragmentToHomeFragment2 accion = IniciarRutinaFragmentDirections.actionIniciarRutinaFragmentToHomeFragment2();
+                navController.navigate(accion);
+            }
         });
 
     }
