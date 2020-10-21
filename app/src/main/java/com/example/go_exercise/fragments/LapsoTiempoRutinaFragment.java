@@ -256,7 +256,7 @@ public class LapsoTiempoRutinaFragment extends Fragment implements RecyclerViewC
                 System.out.println("valor escogido: "+nombre_valor_escogido);
                 System.out.println("valosr lista: "+listaLapsos.get(i).getMinutos());
 
-                for(int j=0; j<=listaLapsos.get(i).getCantEjercicios(); j++){
+                for(int j=0; j<listaLapsos.get(i).getCantEjercicios(); j++){
                     System.out.println("Alguno nombre: "+listaEjercios.get(j).getNombre());
                     ejerciciosSel.add(listaEjercios.get(j));
                 }
