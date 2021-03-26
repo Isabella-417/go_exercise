@@ -1,6 +1,12 @@
 # Go Exercise
 
-Aplicación que configura una rutina de entrenamiento y la ejecuta dado un tiempo establecido.
+Set up a workout routine given a time interval.
 
-Uso de fragments, sharedpreferences, sqlite, dao-design-pattern room-persistence-library y navigation-component.
+## Use
+- Fragments
+- SharedPreferences
+- SQlite
+- Dao Design Pattern
+- Room Persistence Library
+- Navigation Component
 
